@@ -23,6 +23,11 @@ import SearchScreen from "./components/searchTab/SearchScreen";
 import FavoritesScreen from "./components/favoritesTab/FavoritesScreen";
 import LatestMoviesScreen from "./components/latestMoviesTab/LatestMoviesScreen";
 import SearchImage from "./images/search.svg";
+import SearchInactiveImage from "./images/searchInactive.svg";
+import FavoritesImage from "./images/heart.svg";
+import FavoritesInactiveImage from "./images/heartInactive.svg";
+import LatestMoviesImage from "./images/clock.svg";
+import LatestMoviesInactiveImage from "./images/clockInactive.svg";
 
 
 const Tab = createBottomTabNavigator();
@@ -36,23 +41,44 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator 
+        screenOptions={{
+          tabBarActiveTintColor: "black",
+          tabBarInactiveTintColor: "darkgrey",
+        }}>
         <Tab.Screen
-          name="Recherche"
+          name="Search"
           component={SearchScreen}
           options={{
             tabBarIcon: ({ focused, color, size }) => {
-              return <SearchImage />
+              // ceci fut un "early return", présenté dans un oneliner
+              if (focused) return <SearchImage width={32} height={32}/>;
+
+              return <SearchInactiveImage width={32} height={32}/>;
             }
           }}
         />
         <Tab.Screen
-          name="Favoris"
+          name="Favorites"
           component={FavoritesScreen}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => {
+              if (focused) return <FavoritesImage width={32} height={32}/>;
+
+              return <FavoritesInactiveImage width={32} height={32}/>;
+            }
+          }}
         />
         <Tab.Screen
-          name="Les derniers films"
+          name="Latest Movies"
           component={LatestMoviesScreen}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => {
+              if (focused) return <LatestMoviesImage width={32} height={32}/>;
+
+              return <LatestMoviesInactiveImage width={32} height={32}/>;
+            }
+          }}
         />
       </Tab.Navigator>
     </NavigationContainer>

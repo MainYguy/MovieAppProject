@@ -5,21 +5,18 @@ import {
   Text,
   View,
 } from 'react-native';
+import FavoritesEmptyHeartImage from "../images/heartEmpty.svg";
 
 const styles = StyleSheet.create({
   movieCard: {
     minWidth: "100%",
     maxWidth: "100%",
     marginBottom: 16,
-    // paddingHorizontal: 8,
     flexDirection: "row",
-    borderColor: "red",
-    borderWidth: 1,
-    borderStyle: "solid",
   },
   imageContainer: {
-    width: 100,
-    height: 150,
+    width: 120,
+    height: 190,
   },
   poster: {
     width: "100%",
@@ -28,22 +25,34 @@ const styles = StyleSheet.create({
   textSection: {
     paddingLeft: 16,
     flex: 1,
-    backgroundColor: "lightyellow",
+    justifyContent: "space-between",
   },
   frontBar: {
-    backgroundColor: "lightblue",
     flexDirection: "row",
     justifyContent: "space-between",
+    minHeight: 48,
+  },
+  favoriteButton: {
+    marginHorizontal: 4,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 16,
+    marginHorizontal: 4,
+    textAlign: "center",
+    flex: 1,
+    color: "black",
   },
   notation: {
     fontWeight: "bold",
+    fontSize: 24,
+    marginHorizontal: 4,
   },
-  overviewContainer: {
-    backgroundColor: "lightpink",
+  overview: {
+    color: "black",
   },
   bottomBar: {
     flexDirection: "row-reverse",
-    backgroundColor: "lightgreen",
   },
 });
 
@@ -59,19 +68,25 @@ function MovieCard({ movie }) {
         />
       </View>
       <View style={styles.textSection}>
-        <View style={styles.frontBar}>
-          <Text>like</Text>
-          <Text>{movie.title}</Text>
-          <Text style={styles.notation}>{movie.vote_average}</Text>
-        </View>
-        <View style={styles.overviewContainer}>
-          <Text
-            numberOfLines={6}
-            elipsizeMode='tail'
-            style={styles.overview}
-          >
-            {movie.overview}
-          </Text>
+        <View>
+          <View style={styles.frontBar}>
+            <FavoritesEmptyHeartImage style={styles.favoriteButton} width={20} height={20}/>
+            <Text style={styles.title}
+              numberOfLines={2}
+              elipsizeMode='tail'>
+              {movie.title}
+            </Text>
+            <Text style={styles.notation}>{movie.vote_average}</Text>
+          </View>
+          <View>
+            <Text
+              numberOfLines={6}
+              elipsizeMode='tail'
+              style={styles.overview}
+            >
+              {movie.overview}
+            </Text>
+          </View>
         </View>
         <View style={styles.bottomBar}>
           <Text>Released on {movie.release_date}</Text>

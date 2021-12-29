@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function FavoritesScreen() {
+function FavoritesScreen({ sessionId }) {
   return (
     <SafeAreaView>
         <Text style={styles.highlight}>Ecran 2</Text>

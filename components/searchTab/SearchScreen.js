@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import axios from "axios";
 import MovieCard from "../MovieCard";
+import { TMDB_API_KEY } from "@env";
 
 const styles = StyleSheet.create({
   highlight: {
@@ -39,7 +40,7 @@ function SearchScreen() {
   }
 
   function searchMovieByTitle() {
-    const apiKey = "f96cd1ed5d4a4963f76c6b5e735c6a3e";
+    const apiKey = TMDB_API_KEY;
 
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=Jack+Reacher`)
       .then(response => {

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 function LatestMoviesScreen() {
   return (
     <SafeAreaView>
-        <Text style={styles.highlight}>Ecran 3</Text>
+      <Text style={styles.highlight}>Ecran 3</Text>
     </SafeAreaView>
   );
 }

@@ -7,7 +7,7 @@ module.exports = {
       whitelist: null,
       safe: false,
       allowUndefined: true,
-    }]
+    }],
   ],
   presets: ['module:metro-react-native-babel-preset'],
 };

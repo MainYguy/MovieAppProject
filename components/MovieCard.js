@@ -56,24 +56,24 @@ const styles = StyleSheet.create({
   },
 });
 
-
 function MovieCard({ movie }) {
-
   return (
     <View style={styles.movieCard}>
       <View style={styles.imageContainer}>
         <Image
-          style={styles.poster} 
-          source={{ uri: 'https://image.tmdb.org/t/p/original' + movie.poster_path }}
+          style={styles.poster}
+          source={{ uri: `https://image.tmdb.org/t/p/original${movie.poster_path}` }}
         />
       </View>
       <View style={styles.textSection}>
         <View>
           <View style={styles.frontBar}>
-            <FavoritesEmptyHeartImage style={styles.favoriteButton} width={20} height={20}/>
-            <Text style={styles.title}
+            <FavoritesEmptyHeartImage style={styles.favoriteButton} width={20} height={20} />
+            <Text
+              style={styles.title}
               numberOfLines={2}
-              elipsizeMode='tail'>
+              elipsizeMode="tail"
+            >
               {movie.title}
             </Text>
             <Text style={styles.notation}>{movie.vote_average}</Text>
@@ -81,7 +81,7 @@ function MovieCard({ movie }) {
           <View>
             <Text
               numberOfLines={6}
-              elipsizeMode='tail'
+              elipsizeMode="tail"
               style={styles.overview}
             >
               {movie.overview}
@@ -89,10 +89,12 @@ function MovieCard({ movie }) {
           </View>
         </View>
         <View style={styles.bottomBar}>
-          <Text>Released on {movie.release_date}</Text>
+          <Text>
+            Released on
+            {movie.release_date}
+          </Text>
         </View>
       </View>
-      
 
     </View>
   );
